@@ -1,6 +1,7 @@
 import React from "react";
 import { render, fireEvent, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
+import { userEvent } from '@testing-library/user-event';
 import Episode from "./../Episode";
 
 const testEpisode = {
@@ -39,8 +40,8 @@ test("renders the summary test passed as prop", () => {
 
 test("renders default image when image is not defined", () => {
     render(<Episode episode={testEpisodeWithoutImage}/>);
-    const image = screen.queryByAltText('./stranger_things.png');
-    console.log(image);
+    const image = screen.queryByAltText('https://i.ibb.co/2FsfXqM/stranger-things.png');
+    //console.log(image);
     expect(image).toBeInTheDocument();
 });
 
